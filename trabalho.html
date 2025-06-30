@@ -8,7 +8,7 @@
 <body>
 
 <header style="display: flex; align-items: center; justify-content: left; gap: 15px; padding: 10px;">
-    <a href="index.html">
+    <a href="home.html">
         <img src="images/olho.jpg" alt="Voltar à Página Inicial" style="height: 40px; cursor: pointer; padding-right: 150px;">
     </a>
     <span>Trabalho de Visão Computacional - Sistema tradutor de Libras para texto em português</span>
@@ -17,23 +17,47 @@
 
   <div class="container">
     <div class="sidebar">
-        <button onclick="showContent('pagina1')">Etapa 0</button>
-        <button onclick="showContent('pagina2')">Etapa 1</button>
+        <button onclick="showContent('home')">Equipe</button>
+        <button onclick="showContent('entrevistas')">Etapa 0</button>
+        <button onclick="showContent('cenario-aplicacao')">Etapa 1</button>
         <button onclick="showContent('modelagem-funcional')">Etapa 2</button>
+        <button onclick="showContent('seminario-pt1')">Seminário 1</button>
     </div>
     <div class="content">
-        <div id="pagina1" class="content-section">
+        <div id="home" class="content-section">
+            <h2>Integrantes</h2>
+            <ul style="list-style-type: disc; padding-left: 20px;">
+                <li>Leonardo Severgnine Maioli – 11201920579</li>
+                <li>Ricardo Javurek Rihan – 11201920897</li>
+                <li>Tiago Luiz Silva de Araújo Pereira – 11013316</li>
+            </ul>
+
+            <h2 style="margin-top: 30px;">Tema do Trabalho</h2>
+            <p><strong>Título:</strong> Sistema tradutor de Libras para texto em português</p>
+            <p>O projeto visa o desenvolvimento de um protótipo baseado em técnicas de Visão Computacional para traduzir sinais de Libras
+               em tempo real para texto em português. O sistema terá como foco a utilização em clínicas e hospitais, sendo capaz de reconhecer 
+               sinais usados em triagem de pronto-socorro ou em consultas clínicas básicas como sintomas, dores, respostas simples como 
+               "sim", "não", "febre", "dor de cabeça", entre outras. Dessa maneira, o sistema será especialmente útil em contextos hospitalares
+               e clínicos, permitindo que pacientes surdos consigam se comunicar com profissionais da saúde de forma mais eficiente. 
+               A solução capturará vídeos de sinais, processará os frames, identificará os gestos e os traduzirá em palavras e 
+               frases compreensíveis.</p>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <img src="images/libras_traducao.png" alt="Imagem ilustrativa do sistema" style="max-width: 80%; height: auto;">
+            </div>
+        </div>
+        <div id="entrevistas" class="content-section hidden">
             <h2>Etapa 0 - Entrevistas Empáticas</h2>
             <p>Ainda será adicionado.</p>
         </div>
-        <div id="pagina2" class="content-section hidden">
+        <div id="cenario-aplicacao" class="content-section hidden">
             <h2>Etapa 1 - Contexto e Cenário de Aplicação (CA)</h2>
             <p>Ainda será adicionado.</p>
         </div>
-        <div class="content-section hidden" id="modelagem-funcional">
+        <div id="modelagem-funcional" class="content-section hidden">
             <h2 style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
                 Modelagem Funcional do Sistema
-                <a href="etapa2_trabalho/modelagem-funcional.pdf" target="_blank" title="Abrir PDF">
+                <a href="etapa2-MF/modelagem-funcional.pdf" target="_blank" title="Abrir PDF">
                     📄
                 </a>
             </h2>
@@ -46,7 +70,7 @@
             <p>O sistema será composto por alguns módulos que atuam de forma sequencial. A entrada principal será um vídeo capturado em tempo real de uma pessoa sinalizando em Libras. O processamento envolverá a captura desse vídeo, pré-processamento de frames, extração de características, classificação dos sinais e, por fim, a exibição do texto traduzido.</p>
 
             <h3 style="margin-bottom: 5px; margin-top: 5px;">Diagrama de Blocos</h3>
-            <img src="etapa2_trabalho/diagrama_blocos_etapa2_trabalho.png" alt="Diagrama de Blocos" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+            <img src="etapa2-MF/diagrama_blocos_etapa2_trabalho.png" alt="Diagrama de Blocos" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
 
             <h3 style="margin-bottom: 5px; margin-top: 5px;">Descrição dos Blocos do Sistema</h3>
             <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
@@ -111,6 +135,10 @@
                 <li><strong>Dispositivo de Entrada:</strong> Webcam ou câmera de celular</li>
                 <li><strong>Dispositivo de Saída:</strong> Tela de computador ou smartphone</li>
             </ul>
+        </div>
+        <div id="seminario-pt1" class="content-section hidden">
+            <h2>Seminário - Parte 1</h2>
+            <p>Ainda será adicionado.</p>
         </div>
     </div>
 
