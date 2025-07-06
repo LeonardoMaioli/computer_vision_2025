@@ -8,20 +8,19 @@
 <body>
 
 <header style="display: flex; align-items: center; justify-content: left; gap: 15px; padding: 10px;">
-    <a href="home.html">
-        <img src="images/olho.jpg" alt="Voltar à Página Inicial" style="height: 40px; cursor: pointer; padding-right: 150px;">
+    <a href="trabalho.html">
+        <img src="home/libras.png" alt="Voltar à Página Inicial" style="height: 40px; cursor: pointer; padding-right: 150px; filter: invert(1);">
     </a>
     <span>Trabalho de Visão Computacional - Sistema tradutor de Libras para texto em português</span>
 </header>
 
-
-  <div class="container">
+<div class="container">
     <div class="sidebar">
         <button onclick="showContent('home')">Equipe</button>
-        <button onclick="showContent('entrevistas')">Etapa 0</button>
         <button onclick="showContent('cenario-aplicacao')">Etapa 1</button>
         <button onclick="showContent('modelagem-funcional')">Etapa 2</button>
         <button onclick="showContent('seminario-pt1')">Seminário 1</button>
+        <button onclick="showContent('referencias')">Referências</button>
     </div>
     <div class="content">
         <div id="home" class="content-section">
@@ -33,7 +32,7 @@
             </ul>
 
             <h2 style="margin-top: 30px;">Tema do Trabalho</h2>
-            <p><strong>Título:</strong> Sistema tradutor de Libras para texto em português</p>
+            <p><strong>Sistema tradutor de Libras para texto utilizando técnicas de Visão Computacional - Aplicação em contextos clínicos e hospitalares. </strong></p>
             <p>O projeto visa o desenvolvimento de um protótipo baseado em técnicas de Visão Computacional para traduzir sinais de Libras
                em tempo real para texto em português. O sistema terá como foco a utilização em clínicas e hospitais, sendo capaz de reconhecer 
                sinais usados em triagem de pronto-socorro ou em consultas clínicas básicas como sintomas, dores, respostas simples como 
@@ -43,20 +42,56 @@
                frases compreensíveis.</p>
 
             <div style="text-align: center; margin-top: 30px;">
-                <img src="images/libras_traducao.png" alt="Imagem ilustrativa do sistema" style="max-width: 80%; height: auto;">
+                <img src="home/img_home.png" alt="Imagem ilustrativa do sistema" style="max-width: 80%; height: auto;">
             </div>
         </div>
-        <div id="entrevistas" class="content-section hidden">
-            <h2>Etapa 0 - Entrevistas Empáticas</h2>
-            <p>Ainda será adicionado.</p>
-        </div>
         <div id="cenario-aplicacao" class="content-section hidden">
-            <h2>Etapa 1 - Contexto e Cenário de Aplicação (CA)</h2>
-            <p>Ainda será adicionado.</p>
+            <h2 style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
+                Contexto e Cenário de Aplicação (CA)
+                <a href="etapa1-CA/contexto-cenario-aplicacao.pdf" target="_blank" title="Abrir PDF">
+                    📄
+                </a>
+            </h2>
+
+            <h3 style="margin-bottom: 5px; margin-top: 5px;">Contexto do Problema</h3>
+            <p>A Língua Brasileira de Sinais (Libras) é a principal forma de comunicação de milhares de pessoas surdas no Brasil. Trata-se de uma língua visual-motora com estrutura gramatical própria, e não é universal, com cada país possuindo sua própria língua de sinais. Apesar de ter sido reconhecida oficialmente no Brasil como meio legal de comunicação em 2002 (Lei nº 10.436/2002), a falta de profissionais intérpretes de Libras e a baixa inclusão digital para a comunidade surda ainda são barreiras significativas. Em muitos serviços públicos, empresas e até mesmo em ambientes educacionais, a comunicação entre surdos e ouvintes é limitada pela ausência de tradutores humanos.</p>
+
+            <h4 style="margin-bottom: 5px; margin-top: 5px;">Escolha do Tema e Justificativa</h4>
+            <p>Durante a etapa de entrevistas empáticas deste trabalho, os membros do grupo entrevistaram pessoas buscando entender com empatia os problemas que existiam em seus cotidianos, ou de pessoas conhecidas, em que a solução poderia envolver o uso de recursos como câmeras, imagens, vídeos, smartphones e as técnicas de visão computacional. Nesta etapa, diversos problemas nesse contexto foram levantados e podem ser melhor entendidos nos relatos de entrevistas entregues na etapa anterior.</p>
+
+            <p>A partir dos problemas levantados pelos entrevistados, a equipe optou por trabalhar com o problema da dificuldade de comunicação entre surdos e ouvintes, devido à sua relevância social e ao impacto direto na inclusão de pessoas surdas em diferentes contextos, como saúde, educação e atendimento ao público. Além disso, uma análise de mercado mostrou que existem alguns aplicativos voltados para a tradução de texto, voz ou vídeo para Libras, como o Hand Talk e o VLibras, que utilizam avatares virtuais para apresentar os sinais de Libras a partir de um conteúdo em português. No entanto, essas soluções atuam apenas na direção Português → Libras, não sendo capazes de realizar a tradução inversa, ou seja, de Libras (captada por câmera) para texto em português.</p>
+
+            <p>Continuando com a pesquisa, a equipe encontrou artigos científicos que também apontam a existência de alguns trabalhos voltados para a tradução de Libras para texto, como o realizado por Nath et al. (2017), que propôs um modelo utilizando técnicas de processamento de imagem, como o algoritmo de Casca Convexo (Convex Hull Algorithm) e o algoritmo de Correspondência de Modelos (Template Matching Algorithm), para realizar o reconhecimento de linguagem de sinais. Também foi encontrado o trabalho de Papatsimouli et al. (2023), que realizou uma revisão sistemática dos avanços recentes em sistemas de tradução de linguagem de sinais em tempo real, com foco especial na integração dessas tecnologias com a Internet das Coisas (IoT).</p>
+
+            <p>Apesar desses avanços iniciais, muitos desses estudos estão em fase experimental, com vocabulário limitado e foco em ambientes controlados de laboratório. Dessa forma, fica claro que ainda existe uma lacuna significativa na oferta de soluções práticas e acessíveis para o público geral que possibilitem a tradução automática de Libras para texto, especialmente em cenários reais com variabilidade de iluminação, fundo, ângulo de câmera e velocidade dos sinais. Com base nisso, a equipe propõe o desenvolvimento de um sistema de tradução de Libras para texto com foco em contextos clínicos e hospitalares, visando atender a uma demanda identificada nas entrevistas e que possa trazer bons resultados futuros para essa área.</p>
+
+            <h3 style="margin-bottom: 5px; margin-top: 5px;">Sistema de Tradução</h3>
+            <p>O objetivo principal do projeto é desenvolver um protótipo funcional de um sistema de tradução automática de Libras para texto escrito em português, utilizando técnicas de Visão Computacional e Processamento de Vídeo. Além disso, o sistema terá um foco específico para utilização em clínicas e hospitais, ou seja, será capaz de reconhecer sinais específicos usados em triagem de pronto-socorro ou em consultas clínicas básicas como sintomas, dores, respostas simples como "sim", "não", "febre", "dor de cabeça", entre outras.</p>
+
+            <p>Espera-se que o resultado final para o usuário seja uma aplicação capaz de capturar, por meio de uma webcam ou câmera de celular, o vídeo de uma pessoa realizando sinais em Libras. O sistema será responsável por processar os frames desse vídeo, reconhecer os gestos feitos pelas mãos e braços e exibir em uma tela a tradução correspondente em forma de texto.</p>
+
+            <h4 style="margin-bottom: 5px; margin-top: 5px;">Utilização do Sistema</h4>
+            <p>O sistema será projetado para possuir uma interface simples e amigável aos usuários, sejam eles pessoas surdas ou ouvintes. O processo de utilização do sistema ocorrerá nas seguintes etapas:</p>
+
+            <ol style="padding-left: 20px;">
+                <li>Para um início de comunicação entre um ouvinte e uma pessoa surda, a câmera conectada a uma tela (celular ou notebook) deverá ser posicionada de frente para essa última, enquanto a tela fica com a outra pessoa.</li>
+                <li>Ao ligar o sistema, ele começará a capturar o vídeo em tempo real do surdo se comunicando em Libras.</li>
+                <li>A aplicação irá reconhecer os sinais de Libras feitos pela pessoa.</li>
+                <li>Após o processamento, o sistema exibirá na tela o texto traduzido para o português.</li>
+                <li>O usuário ouvinte poderá ler esse texto e então entender a mensagem transmitida pela pessoa surda.</li>
+            </ol>
+
+            <h4 style="margin-bottom: 5px; margin-top: 5px;">Benefício do Sistema</h4>
+            <p>O principal benefício do sistema de tradução será a promoção da inclusão comunicacional em contextos de atendimento em saúde, reduzindo barreiras linguísticas entre profissionais da saúde e pessoas surdas.</p>
+
+            <p>Com a utilização do sistema, médicos, enfermeiros, atendentes de recepção e outros profissionais poderão compreender de forma rápida e eficiente o que o paciente surdo está comunicando em Libras, mesmo sem possuir conhecimento prévio da língua de sinais. A aplicação prática deste sistema será especialmente útil em momentos de triagem, consultas clínicas básicas e atendimentos de emergência, nos quais a comunicação precisa ser objetiva, rápida e clara.</p>
+
+            <p>Além de facilitar o atendimento e garantir maior segurança ao paciente surdo, o sistema também poderá servir como base para futuras pesquisas na área de tradução automática de línguas de sinais, ampliando o vocabulário reconhecido, melhorando a precisão dos algoritmos e contribuindo para o avanço da acessibilidade digital no Brasil.</p>
+
         </div>
         <div id="modelagem-funcional" class="content-section hidden">
             <h2 style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
-                Modelagem Funcional do Sistema
+                Modelagem Funcional do Sistema (MF)
                 <a href="etapa2-MF/modelagem-funcional.pdf" target="_blank" title="Abrir PDF">
                     📄
                 </a>
@@ -137,10 +172,177 @@
             </ul>
         </div>
         <div id="seminario-pt1" class="content-section hidden">
-            <h2>Seminário - Parte 1</h2>
-            <p>Ainda será adicionado.</p>
+            <h2>Seminário 1</h2>
+            <div id="slides-container" style="position: relative; max-width: 800px; margin: auto;">
+
+                <!-- Slide 1 -->
+                <div class="slide" style="display: block;">
+                <h3>Problema</h3>
+                <p>A Língua Brasileira de Sinais (Libras) é a principal forma de comunicação da comunidade surda no Brasil. Apesar de reconhecida por lei, a falta de profissionais intérpretes de Libras e a baixa inclusão digital para a comunidade surda ainda são barreiras significativas na comunicação de pessoas surdas com ouvintes em diversas áreas.
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="slide" style="display: block;">
+                <h3>Contexto do Problema</h3>
+                <p>Ao buscarmos exemplos de onde esse problema aparece, notamos que ele está em toda parte, em serviços públicos essenciais como os de saúde, em empresas e em ambientes educacionais, a comunicação entre surdos e ouvintes é limitada.</p>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide" style="display: none;">
+                <h3>Justificativa do Projeto e Motivação</h3>
+                <p>Durante a etapa de entrevistas empáticas, esse problema da dificuldade de comunicação da comunidade surda em diversas áreas foi identificado em uma dessas entrevistas. A equipe optou por trabalhar com esse problema devido à sua relevância social e ao impacto direto na inclusão de pessoas surdas em diferentes contextos, como saúde, educação e atendimento ao público. </p>
+                <p>Além disso, esse levantamento levou a equipe a pesquisar mais sobre o tema e entender como o problema vem sendo tratado atualmente com algumas soluções existentes.</p>
+                <p>Uma análise de mercado mostrou que existem alguns aplicativos voltados para a tradução de texto ou voz para Libras, como o Hand Talk e o VLibras, que utilizam avatares virtuais para apresentar os sinais de Libras a partir de um conteúdo textual em português. No entanto, essas soluções atuam apenas na direção Português → Libras, não sendo capazes de realizar a tradução inversa.</p>
+                <p>Artigos científicos encontrados pela equipe também apontam a existência de alguns trabalhos voltados para a tradução de Libras para texto. No entanto, muitos desses estudos estão em fase experimental, com vocabulário limitado e foco em ambientes controlados de laboratório. Dessa forma, ficou claro que ainda existe uma lacuna significativa na oferta de soluções práticas e acessíveis em diferentes áreas.</p>
+                <p>Com base nisso, a equipe propõe o desenvolvimento de um sistema de tradução de Libras para texto com foco em contextos clínicos e hospitalares, visando atender a uma demanda identificada nas entrevistas e que possa trazer bons resultados futuros para essa área.</p>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="slide" style="display: none;">
+                <h3>Objetivo do Sistema e Benefícios</h3>
+                <p>O objetivo principal do projeto é desenvolver um protótipo funcional de um sistema de tradução automática de Libras para texto escrito em português, utilizando técnicas de Visão Computacional e Processamento de Vídeo. Além disso, o sistema terá um foco específico para utilização em clínicas e hospitais, ou seja, será capaz de reconhecer sinais específicos usados em triagem de pronto-socorro ou em consultas clínicas básicas como sintomas, dores, respostas simples como "sim", "não", "febre", "dor de cabeça", entre outras.</p>
+                <p>O principal benefício do sistema de tradução será a promoção da inclusão comunicacional em contextos de atendimento em saúde, reduzindo barreiras linguísticas entre profissionais da saúde e pessoas surdas.</p>
+                <img src="home/img_home.png" alt="Exemplificação do Sistema" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="slide" style="display: none;">
+                <h3>Funcionamento do Sistema</h3>
+                <p>O sistema será composto por alguns módulos que irão atuar de forma sequencial. A entrada principal será um vídeo capturado em tempo real de uma pessoa sinalizando em Libras. O processamento envolverá a captura desse vídeo, pré-processamento de frames, extração de características, classificação dos sinais e, por fim, a exibição do texto traduzido.</p>
+                </div>
+
+                <!-- Slide 6 -->
+                <div class="slide" style="display: none;">
+                    <h3>Arquitetura Funcional do Sistema - Diagrama de Blocos</h3>
+                    <img src="etapa2-MF/diagrama_blocos_etapa2_trabalho.png" alt="Diagrama de Blocos" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+
+                    <h3 style="margin-bottom: 5px; margin-top: 5px;">Descrição dos Blocos do Sistema</h3>
+                    <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+                        <thead>
+                            <tr style="background-color: #f0f0f0;">
+                                <th>Bloco</th>
+                                <th>Entrada</th>
+                                <th>Processamento</th>
+                                <th>Saída</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Captura de vídeo com câmera</td>
+                                <td>Vídeo em tempo real</td>
+                                <td>Captura contínua de frames</td>
+                                <td>Sequência de frames</td>
+                            </tr>
+                            <tr>
+                                <td>Pré-processamento dos frames</td>
+                                <td>Frames</td>
+                                <td>Remoção de ruído, filtros, ajuste de contraste</td>
+                                <td>Imagens tratadas</td>
+                            </tr>
+                            <tr>
+                                <td>Detecção de regiões de interesse</td>
+                                <td>Imagem tratada</td>
+                                <td>Segmentação para isolar mãos e braços</td>
+                                <td>Regiões de interesse</td>
+                            </tr>
+                            <tr>
+                                <td>Extração de características</td>
+                                <td>Região de interesse</td>
+                                <td>Extração de formas, contornos, pontos</td>
+                                <td>Vetor de características</td>
+                            </tr>
+                            <tr>
+                                <td>Classificação de sinais</td>
+                                <td>Vetor de características</td>
+                                <td>Modelo de Machine Learning para reconhecer sinais</td>
+                                <td>Rótulo do sinal</td>
+                            </tr>
+                            <tr>
+                                <td>Geração de texto</td>
+                                <td>Rótulo do sinal</td>
+                                <td>Conversão do rótulo reconhecido para texto</td>
+                                <td>Texto em português</td>
+                            </tr>
+                            <tr>
+                                <td>Exibição do texto</td>
+                                <td>Texto</td>
+                                <td>Exibição na interface</td>
+                                <td>Texto exibido na tela</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Slide 7 -->
+                <div class="slide" style="display: none;">
+                    <h3 style="margin-bottom: 5px; margin-top: 5px;">Tecnologias Previstas</h3>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>Linguagem de programação:</strong> Python</li>
+                        <li><strong>Bibliotecas:</strong> OpenCV, TensorFlow/Keras, etc.</li>
+                        <li><strong>Dispositivo de Entrada:</strong> Webcam ou câmera de celular</li>
+                        <li><strong>Dispositivo de Saída:</strong> Tela de computador ou smartphone</li>
+                    </ul>
+                </div>
+
+                <!-- Navegação -->
+                <div style="text-align: center; margin-top: 20px;">
+                <button onclick="changeSlide(-1)">◀ Anterior</button>
+                <button onclick="changeSlide(1)">Próximo ▶</button>
+                </div>
+            </div>
+            </div>
+
+            <script>
+            let currentSlide = 0;
+            const slides = document.querySelectorAll("#slides-container .slide");
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                slide.style.display = i === index ? "block" : "none";
+                });
+            }
+
+            function changeSlide(direction) {
+                currentSlide += direction;
+                if (currentSlide < 0) currentSlide = slides.length - 1;
+                if (currentSlide >= slides.length) currentSlide = 0;
+                showSlide(currentSlide);
+            }
+
+            // Inicializa o primeiro slide
+            showSlide(currentSlide);
+            </script>
+
+        <div id="referencias" class="content-section hidden">
+            <h2>Referências</h2>
+            <ul style="list-style-type: decimal; padding-left: 20px;">
+                <li>
+                    HAND TALK. <em>Hand Talk Tradutor</em>. Disponível em: 
+                    <a href="https://www.handtalk.me/br/" target="_blank">https://www.handtalk.me/br/</a>. 
+                    Acesso em: 17 jun. 2025.
+                </li>
+                <li>
+                    VLIBRAS. <em>Plataforma VLibras</em>. Disponível em: 
+                    <a href="https://www.vlibras.gov.br/" target="_blank">https://www.vlibras.gov.br/</a>. 
+                    Acesso em: 17 jun. 2025.
+                </li>
+                <li>
+                    PAPATSIMOULI, Maria; SARIGIANNIDIS, Panos; FRAGULIS, George F. 
+                    <em>A survey of advancements in real-time sign language translators: Integration with IoT technology</em>. 
+                    <strong>Technologies</strong>, v. 11, n. 4, p. 83, 2023. DOI: 
+                    <a href="https://doi.org/10.3390/technologies11040083" target="_blank">10.3390/technologies11040083</a>.
+                </li>
+                <li>
+                    NATH, Geethu G.; ARUN, C. S. <em>Real time sign language interpreter</em>. 
+                    In: <strong>IEEE International Conference on Electrical, Instrumentation and Communication Engineering (ICEICE)</strong>, 
+                    2017, Karur, Índia. Anais [...]. IEEE, 2017. DOI: 
+                    <a href="https://doi.org/10.1109/ICEICE.2017.8191869" target="_blank">10.1109/ICEICE.2017.8191869</a>.
+                </li>
+            </ul>
         </div>
+
     </div>
+</div>
 
   <script>
     function showContent(id) {

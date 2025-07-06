@@ -1,1 +1,2 @@
-# computer_vision_2025
+# Trabalho de Visão Computacional
+
