@@ -21,7 +21,8 @@
         <button onclick="showContent('modelagem-funcional')">Etapa 2</button>
         <button onclick="showContent('seminario-pt1')">Seminário 1</button>
         <button onclick="showContent('referencias')">Referências</button>
-        <button onclick="showContent('laboratorio-experimental')">Etapa 4</button>
+        <button onclick="showContent('spv')">Etapa 4</button>
+        <button onclick="showContent('laboratorio-experimental')">Etapa 5</button>
     </div>
     <div class="content">
         <div id="home" class="content-section">
@@ -314,33 +315,12 @@
             showSlide(currentSlide);
             </script>
 
-        <div id="referencias" class="content-section hidden">
-            <h2>Referências</h2>
-            <ul style="list-style-type: decimal; padding-left: 20px;">
-                <li>
-                    HAND TALK. <em>Hand Talk Tradutor</em>. Disponível em: 
-                    <a href="https://www.handtalk.me/br/" target="_blank">https://www.handtalk.me/br/</a>. 
-                    Acesso em: 17 jun. 2025.
-                </li>
-                <li>
-                    VLIBRAS. <em>Plataforma VLibras</em>. Disponível em: 
-                    <a href="https://www.vlibras.gov.br/" target="_blank">https://www.vlibras.gov.br/</a>. 
-                    Acesso em: 17 jun. 2025.
-                </li>
-                <li>
-                    PAPATSIMOULI, Maria; SARIGIANNIDIS, Panos; FRAGULIS, George F. 
-                    <em>A survey of advancements in real-time sign language translators: Integration with IoT technology</em>. 
-                    <strong>Technologies</strong>, v. 11, n. 4, p. 83, 2023. DOI: 
-                    <a href="https://doi.org/10.3390/technologies11040083" target="_blank">10.3390/technologies11040083</a>.
-                </li>
-                <li>
-                    NATH, Geethu G.; ARUN, C. S. <em>Real time sign language interpreter</em>. 
-                    In: <strong>IEEE International Conference on Electrical, Instrumentation and Communication Engineering (ICEICE)</strong>, 
-                    2017, Karur, Índia. Anais [...]. IEEE, 2017. DOI: 
-                    <a href="https://doi.org/10.1109/ICEICE.2017.8191869" target="_blank">10.1109/ICEICE.2017.8191869</a>.
-                </li>
-            </ul>
+        <div id="spv" class="content-section hidden">
+            <h2> Desenvolvimento do Sistema de Processamento da Visão (SPV)</h2>
+
+            
         </div>
+
         <div id="laboratorio-experimental" class="content-section hidden">
             <h2>Laboratório Experimental do SPV (LEx)</h2>
 
@@ -360,23 +340,25 @@
             <p>
                 Para este laboratório experimental, o usuário não precisará realizar etapas de coleta de dados ou treinamento do modelo, todo o sistema já está configurado e treinado. O objetivo será apenas executar o módulo de predição em tempo real, observar o reconhecimento dos gestos e registrar os resultados obtidos.
             </p>
-            <p><em>(Espaço reservado para imagens ilustrativas do sistema)</em></p>
+
+            <img src="etapa5-SPV/" alt="exemplo_sistema" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
 
             <h3>Procedimento Experimental</h3>
             <p><strong>Pré-requisitos:</strong></p>
             <ul style="padding-left: 20px;">
-                <li>Computador com Linux (Ubuntu recomendado)</li>
+                <li>Computador com Linux</li>
                 <li>Python 3.8 ou superior instalado</li>
                 <li>Bibliotecas necessárias já instaladas: <code>opencv-python</code>, <code>mediapipe</code>, <code>scikit-learn</code>, <code>numpy</code>, <code>pandas</code></li>
-                <li>Modelo treinado (<code>gesture_model.pkl</code>) e codificador (<code>label_encoder.pkl</code>) já disponíveis na pasta do projeto</li>
+                <li>Modelo treinado (<code>gesture_model.pkl</code>) e codificador (<code>label_encoder.pkl</code>) já disponíveis no repositório da equipe</li>
             </ul>
 
             <h4>Execução do Sistema</h4>
             <ol style="padding-left: 20px;">
-                <li>Abra o terminal e navegue até a pasta do projeto.</li>
-                <li>Certifique-se de que a webcam está conectada e funcionando.</li>
-                <li>Execute o comando: <code>python3 predicao.py</code></li>
-                <li>O sistema abrirá a webcam e exibirá, no terminal, o nome do gesto detectado.</li>
+                <li>Realize o download dos arquivos do projeto, disponível <a href="https://github.com/LeonardoMaioli/computer_vision_2025/tree/main/etapa4-SPV" target="_blank">neste link</a>.</li>
+                <li>Abra o terminal e navegue até a pasta onde salvou o diretório do projeto.</li>
+                <li>Conecte a webcam no computador e verifique que a mesma esteja conectada e funcionando.</li>
+                <li>De volta ao terminal, execute o comando: <code>python3 predicao.py</code></li>
+                <li>O sistema abrirá a webcam que ficará gravando em tempo real e exibirá, no terminal, o nome do gesto detectado realizado pela pessoa.</li>
                 <li>Realize os gestos um de cada vez, mantendo a mão visível para a câmera e posicionada de forma centralizada no quadro.</li>
                 <li>Para encerrar a execução, pressione <strong>"q"</strong> no teclado.</li>
             </ol>
@@ -404,9 +386,16 @@
                 <li>Observações sobre tempo de resposta e facilidade de uso.</li>
             </ul>
 
-            <h3>Questionário (Notas de 1 a 5)</h3>
+            <h3>Questionário</h3>
             <ol style="padding-left: 20px;">
-                <li>adicionar aqui</li>
+                <li>O sistema conseguiu reconhecer corretamente todos os gestos realizados (<strong>Não</strong>, <strong>Sim</strong>, <strong>Dor</strong>, <strong>Febre</strong>, <strong>Enjoo</strong>, <strong>Resfriado</strong>)? Se não, qual teve mais dificuldade?</li>
+                <li>O reconhecimento se manteve preciso mesmo variando a distância da câmera? </li>
+                <li>O reconhecimento se manteve preciso mesmo alterando levemente o ângulo da mão? </li>
+                <li>O sistema respondeu rapidamente aos gestos realizados?</li>
+                <li>Houve consistência no reconhecimento quando você repetiu os mesmos gestos?</li>
+                <li>As instruções para realizar os gestos estavam claras e ajudaram na execução? </li>
+                <li>Foi fácil pedir ajuda ou usar o aplicativo <strong>HandTalk</strong> para aprender gestos desconhecidos? </li>
+                <li>O sistema foi fácil de usar de forma geral? </li>
             </ol>
 
             <h3>Enquete Subjetiva</h3>
@@ -422,6 +411,34 @@
                 <li>Clareza das instruções</li>
                 <li>Qualidade do reconhecimento</li>
                 <li>Aplicabilidade prática</li>
+            </ul>
+        </div>
+
+        <div id="referencias" class="content-section hidden">
+            <h2>Referências</h2>
+            <ul style="list-style-type: decimal; padding-left: 20px;">
+                <li>
+                    HAND TALK. <em>Hand Talk Tradutor</em>. Disponível em: 
+                    <a href="https://www.handtalk.me/br/" target="_blank">https://www.handtalk.me/br/</a>. 
+                    Acesso em: 17 jun. 2025.
+                </li>
+                <li>
+                    VLIBRAS. <em>Plataforma VLibras</em>. Disponível em: 
+                    <a href="https://www.vlibras.gov.br/" target="_blank">https://www.vlibras.gov.br/</a>. 
+                    Acesso em: 17 jun. 2025.
+                </li>
+                <li>
+                    PAPATSIMOULI, Maria; SARIGIANNIDIS, Panos; FRAGULIS, George F. 
+                    <em>A survey of advancements in real-time sign language translators: Integration with IoT technology</em>. 
+                    <strong>Technologies</strong>, v. 11, n. 4, p. 83, 2023. DOI: 
+                    <a href="https://doi.org/10.3390/technologies11040083" target="_blank">10.3390/technologies11040083</a>.
+                </li>
+                <li>
+                    NATH, Geethu G.; ARUN, C. S. <em>Real time sign language interpreter</em>. 
+                    In: <strong>IEEE International Conference on Electrical, Instrumentation and Communication Engineering (ICEICE)</strong>, 
+                    2017, Karur, Índia. Anais [...]. IEEE, 2017. DOI: 
+                    <a href="https://doi.org/10.1109/ICEICE.2017.8191869" target="_blank">10.1109/ICEICE.2017.8191869</a>.
+                </li>
             </ul>
         </div>
     </div>
