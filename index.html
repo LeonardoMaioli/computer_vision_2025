@@ -21,6 +21,7 @@
         <button onclick="showContent('modelagem-funcional')">Etapa 2</button>
         <button onclick="showContent('seminario-pt1')">Seminário 1</button>
         <button onclick="showContent('referencias')">Referências</button>
+        <button onclick="showContent('laboratorio-experimental')">Etapa 4</button>
     </div>
     <div class="content">
         <div id="home" class="content-section">
@@ -340,7 +341,89 @@
                 </li>
             </ul>
         </div>
+        <div id="laboratorio-experimental" class="content-section hidden">
+            <h2>Laboratório Experimental do SPV (LEx)</h2>
 
+            <h3>Introdução</h3>
+            <p>
+                Este roteiro tem como objetivo principal orientar qualquer usuário, mesmo sem conhecimento técnico prévio, a utilizar o Sistema Tradutor de Libras para Texto desenvolvido pela equipe, seja no laboratório de aula ou em qualquer outro ambiente com condições semelhantes, e assim obter seus próprios resultados experimentais.
+            </p>
+            <p>
+                Relembrando brevemente, o sistema desenvolvido é um protótipo que utiliza técnicas de Visão Computacional e Processamento de Vídeo para traduzir sinais específicos da Língua Brasileira de Sinais (Libras) para texto escrito em português. Seu foco é a aplicação em contextos clínicos e hospitalares, com capacidade de reconhecer sinais usados em triagens de pronto-socorro ou consultas clínicas básicas, como sintomas, dores e respostas simples.
+            </p>
+            <p>
+                O sistema opera por meio de módulos que atuam de forma sequencial: captura de vídeo em tempo real de uma pessoa sinalizando, pré-processamento dos frames, extração de características das mãos, classificação dos sinais e, por fim, exibição do texto traduzido na tela.
+            </p>
+            <p>
+                Nesta versão do projeto, a equipe projetou o sistema para identificar os seguintes sinais: <strong>Não</strong>, <strong>Sim</strong>, <strong>Dor</strong>, <strong>Febre</strong>, <strong>Enjoo</strong> e <strong>Resfriado</strong>.
+            </p>
+            <p>
+                Para este laboratório experimental, o usuário não precisará realizar etapas de coleta de dados ou treinamento do modelo, todo o sistema já está configurado e treinado. O objetivo será apenas executar o módulo de predição em tempo real, observar o reconhecimento dos gestos e registrar os resultados obtidos.
+            </p>
+            <p><em>(Espaço reservado para imagens ilustrativas do sistema)</em></p>
+
+            <h3>Procedimento Experimental</h3>
+            <p><strong>Pré-requisitos:</strong></p>
+            <ul style="padding-left: 20px;">
+                <li>Computador com Linux (Ubuntu recomendado)</li>
+                <li>Python 3.8 ou superior instalado</li>
+                <li>Bibliotecas necessárias já instaladas: <code>opencv-python</code>, <code>mediapipe</code>, <code>scikit-learn</code>, <code>numpy</code>, <code>pandas</code></li>
+                <li>Modelo treinado (<code>gesture_model.pkl</code>) e codificador (<code>label_encoder.pkl</code>) já disponíveis na pasta do projeto</li>
+            </ul>
+
+            <h4>Execução do Sistema</h4>
+            <ol style="padding-left: 20px;">
+                <li>Abra o terminal e navegue até a pasta do projeto.</li>
+                <li>Certifique-se de que a webcam está conectada e funcionando.</li>
+                <li>Execute o comando: <code>python3 predicao.py</code></li>
+                <li>O sistema abrirá a webcam e exibirá, no terminal, o nome do gesto detectado.</li>
+                <li>Realize os gestos um de cada vez, mantendo a mão visível para a câmera e posicionada de forma centralizada no quadro.</li>
+                <li>Para encerrar a execução, pressione <strong>"q"</strong> no teclado.</li>
+            </ol>
+
+            <h4>Sugestão de Execuções para o Teste</h4>
+            <ul style="padding-left: 20px;">
+                <li>Realizar cada um dos gestos disponíveis: <strong>Não</strong>, <strong>Sim</strong>, <strong>Dor</strong>, <strong>Febre</strong>, <strong>Enjoo</strong> e <strong>Resfriado</strong>.</li>
+                <li>Se o usuário não souber como fazer um sinal, pode utilizar o aplicativo <strong>HandTalk</strong>: basta escrever o nome do sinal (ex.: “dor”) e o avatar exibirá como realizar o movimento. Caso não tenha acesso ao aplicativo, pode pedir ajuda a algum dos membros do grupo.</li>
+                <li>Variar a distância da câmera (perto e longe) para avaliar se o reconhecimento se mantém.</li>
+                <li>Alterar levemente o ângulo da mão para verificar a robustez do reconhecimento.</li>
+                <li>Realizar gestos em sequência rápida para observar o tempo de resposta do sistema.</li>
+                <li>Repetir alguns gestos para verificar consistência na detecção.</li>
+            </ul>
+
+            <h4>Resultados Esperados</h4>
+            <p>O usuário deve ver o nome do gesto reconhecido pelo sistema. Caso não seja identificado, será exibido "Desconhecido" ou similar.</p>
+
+            <h4>Registro de Resultados</h4>
+            <p>
+                Durante a execução, o usuário deve anotar:
+            </p>
+            <ul style="padding-left: 20px;">
+                <li>Quais gestos foram reconhecidos corretamente.</li>
+                <li>Se houve erros de classificação.</li>
+                <li>Observações sobre tempo de resposta e facilidade de uso.</li>
+            </ul>
+
+            <h3>Questionário (Notas de 1 a 5)</h3>
+            <ol style="padding-left: 20px;">
+                <li>adicionar aqui</li>
+            </ol>
+
+            <h3>Enquete Subjetiva</h3>
+            <p><strong>Perguntas abertas:</strong></p>
+            <ul style="padding-left: 20px;">
+                <li>O que mais gostou no sistema?</li>
+                <li>O que acha que poderia melhorar?</li>
+                <li>Em quais contextos reais você imagina o uso deste sistema?</li>
+            </ul>
+            <p><strong>Perguntas de escala (1 a 5):</strong></p>
+            <ul style="padding-left: 20px;">
+                <li>Facilidade de uso</li>
+                <li>Clareza das instruções</li>
+                <li>Qualidade do reconhecimento</li>
+                <li>Aplicabilidade prática</li>
+            </ul>
+        </div>
     </div>
 </div>
 
