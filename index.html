@@ -17,13 +17,17 @@
 <div class="container">
     <div class="sidebar">
         <button onclick="showContent('home')">Equipe</button>
-        <button onclick="showContent('cenario-aplicacao')">Etapa 1</button>
-        <button onclick="showContent('modelagem-funcional')">Etapa 2</button>
-        <button onclick="showContent('seminario-pt1')">Seminário 1</button>
+        <button onclick="showContent('cenario-aplicacao')">Etapa 1 - CA</button>
+        <button onclick="showContent('modelagem-funcional')">Etapa 2 - MF</button>
+        <button onclick="showContent('seminario-pt1')">Etapa 3 - Sem 1</button>
+        <button onclick="showContent('spv')">Etapa 4 - SPV</button>
+        <button onclick="showContent('laboratorio-experimental')">Etapa 5 - Lex</button>
+        <button onclick="showContent('teste-campo')">Etapa 6 - TC</button>
+        <button onclick="showContent('relatorio-final')">Etapa 7 - RFT</button>
+        <button onclick="showContent('seminario-pt2')">Etapa 8 - Sem 2</button>
         <button onclick="showContent('referencias')">Referências</button>
-        <button onclick="showContent('spv')">Etapa 4</button>
-        <button onclick="showContent('laboratorio-experimental')">Etapa 5</button>
     </div>
+
     <div class="content">
         <div id="home" class="content-section">
             <h2>Integrantes</h2>
@@ -292,7 +296,7 @@
                 <button onclick="changeSlide(1)">Próximo ▶</button>
                 </div>
             </div>
-            </div>
+        </div>
 
             <script>
             let currentSlide = 0;
@@ -338,27 +342,34 @@
                 Nesta versão do projeto, a equipe projetou o sistema para identificar os seguintes sinais: <strong>Não</strong>, <strong>Sim</strong>, <strong>Dor</strong>, <strong>Febre</strong>, <strong>Enjoo</strong> e <strong>Resfriado</strong>.
             </p>
             <p>
-                Para este laboratório experimental, o usuário não precisará realizar etapas de coleta de dados ou treinamento do modelo, todo o sistema já está configurado e treinado. O objetivo será apenas executar o módulo de predição em tempo real, observar o reconhecimento dos gestos e registrar os resultados obtidos.
+                Para este laboratório experimental, o usuário não precisará realizar etapas de coleta de dados ou treinamento do modelo, todo o sistema já está configurado e treinado. O objetivo será apenas executar o módulo de predição em tempo real, observar o reconhecimento dos gestos e registrar os resultados obtidos. O vídeo abaixo demonstra como o usuário pode utilizar o sistema através de suas interfaces de entrada e saída.
             </p>
 
-            <img src="etapa5-SPV/" alt="exemplo_sistema" style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+            <video controls style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+                <source src="etapa5-Lex/video.mp4" type="video/mp4">
+                Seu navegador não suporta a exibição de vídeos.
+            </video>
 
             <h3>Procedimento Experimental</h3>
             <p><strong>Pré-requisitos:</strong></p>
             <ul style="padding-left: 20px;">
                 <li>Computador com Linux</li>
-                <li>Python 3.8 ou superior instalado</li>
-                <li>Bibliotecas necessárias já instaladas: <code>opencv-python</code>, <code>mediapipe</code>, <code>scikit-learn</code>, <code>numpy</code>, <code>pandas</code></li>
+                <li>Python 3.10 (devido a compatibilidade com algumas libs utilizadas)</li>
+                <li>Bibliotecas necessárias: <code>opencv-python</code>, <code>mediapipe</code>, <code>scikit-learn</code>, <code>numpy</code>, <code>pandas</code></li>
                 <li>Modelo treinado (<code>gesture_model.pkl</code>) e codificador (<code>label_encoder.pkl</code>) já disponíveis no repositório da equipe</li>
+                <li>Código para predição dos sinais <code>predicao.py</code></li>, também disponível no repositório da equipe.
             </ul>
 
             <h4>Execução do Sistema</h4>
             <ol style="padding-left: 20px;">
-                <li>Realize o download dos arquivos do projeto, disponível <a href="https://github.com/LeonardoMaioli/computer_vision_2025/tree/main/etapa4-SPV" target="_blank">neste link</a>.</li>
+                <li>Realize o download dos arquivos do projeto, disponível <a href="https://github.com/LeonardoMaioli/computer_vision_2025/tree/main/etapa4-SPV" target="_blank">neste link</a> ou clicando no botão da etapa 4 dessa página.</li>
+                <li>Em sua máquina, crie um ambiente virtual com o python necessário, utilizando o comando <code>conda create -n cv25_py310 python=3.10</code></li>
+                <li>Nesse ambiente virtual criado, instale as bibliotecas necessárias e que não são nativas do Python com os comandos: <code>pip install opencv-python</code>,<code>pip install mediapipe</code> e <code>pip install scikit-learn</code></li>
                 <li>Abra o terminal e navegue até a pasta onde salvou o diretório do projeto.</li>
+                <li>Ative o ambiente virtual criado com o comando: <code>conda activate cv25_py310</code></li>
                 <li>Conecte a webcam no computador e verifique que a mesma esteja conectada e funcionando.</li>
                 <li>De volta ao terminal, execute o comando: <code>python3 predicao.py</code></li>
-                <li>O sistema abrirá a webcam que ficará gravando em tempo real e exibirá, no terminal, o nome do gesto detectado realizado pela pessoa.</li>
+                <li>O sistema abrirá a webcam que ficará gravando em tempo real e exibirá, no terminal e na tela, o nome do gesto detectado realizado pela pessoa.</li>
                 <li>Realize os gestos um de cada vez, mantendo a mão visível para a câmera e posicionada de forma centralizada no quadro.</li>
                 <li>Para encerrar a execução, pressione <strong>"q"</strong> no teclado.</li>
             </ol>
@@ -366,7 +377,7 @@
             <h4>Sugestão de Execuções para o Teste</h4>
             <ul style="padding-left: 20px;">
                 <li>Realizar cada um dos gestos disponíveis: <strong>Não</strong>, <strong>Sim</strong>, <strong>Dor</strong>, <strong>Febre</strong>, <strong>Enjoo</strong> e <strong>Resfriado</strong>.</li>
-                <li>Se o usuário não souber como fazer um sinal, pode utilizar o aplicativo <strong>HandTalk</strong>: basta escrever o nome do sinal (ex.: “dor”) e o avatar exibirá como realizar o movimento. Caso não tenha acesso ao aplicativo, pode pedir ajuda a algum dos membros do grupo.</li>
+                <li>Se o usuário não souber como fazer um sinal, recomendamos utilizar o aplicativo <strong>HandTalk</strong>: basta escrever o nome do sinal (ex.: “dor”) e o avatar exibirá como realizar o movimento. Caso não tenha acesso ao aplicativo, pode pedir ajuda a algum dos membros do grupo.</li>
                 <li>Variar a distância da câmera (perto e longe) para avaliar se o reconhecimento se mantém.</li>
                 <li>Alterar levemente o ângulo da mão para verificar a robustez do reconhecimento.</li>
                 <li>Realizar gestos em sequência rápida para observar o tempo de resposta do sistema.</li>
@@ -374,7 +385,7 @@
             </ul>
 
             <h4>Resultados Esperados</h4>
-            <p>O usuário deve ver o nome do gesto reconhecido pelo sistema. Caso não seja identificado, será exibido "Desconhecido" ou similar.</p>
+            <p>O usuário deve ver o nome do gesto reconhecido pelo sistema. Caso não seja identificado, nada será exibido.</p>
 
             <h4>Registro de Resultados</h4>
             <p>
@@ -387,6 +398,13 @@
             </ul>
 
             <h3>Questionário</h3>
+            <p>Para avaliar os resultados obtidos pelos usuários e seu entendimento sobre o sistema, a equipe criou um questionário:</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc03dsRAjM-DW0ZTd4RoBzOcKJShRaTjKwCCOGy1Y-WUTH5SQ/viewform?usp=header" 
+                target="_blank" 
+                style="display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #4CAF50, #45a049); color: #fff; text-decoration: none; border-radius: 10px; font-size: 16px; font-weight: bold; transition: 0.3s;">
+                📑 Abrir Questionário
+            </a>
+            <p>As perguntas utilizadas no questionário foram:</p>
             <ol style="padding-left: 20px;">
                 <li>O sistema conseguiu reconhecer corretamente todos os gestos realizados (<strong>Não</strong>, <strong>Sim</strong>, <strong>Dor</strong>, <strong>Febre</strong>, <strong>Enjoo</strong>, <strong>Resfriado</strong>)? Se não, qual teve mais dificuldade?</li>
                 <li>O reconhecimento se manteve preciso mesmo variando a distância da câmera? </li>
@@ -399,6 +417,14 @@
             </ol>
 
             <h3>Enquete Subjetiva</h3>
+            <p>Além do questionário, o grupo também disponibilizou uma enquete ao usuário com perguntas sobre a sua opinião em relação ao sistema:</p> 
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScinVG_XWMuiE9JYqSwbNiGoocwTjUwt-QvRPGYjMkmibgx4A/viewform?usp=header" 
+                target="_blank" 
+                style="display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #4CAF50, #45a049); color: #fff; text-decoration: none; border-radius: 10px; font-size: 16px; font-weight: bold; transition: 0.3s;">
+                📑 Abrir Enquete
+            </a>
+            
+            <p>Essa enquete possui dois tipos de perguntas: (a) com respostas escritas; e (b) com respostas em escala 1~5. As perguntas utilizadas foram:</p>
             <p><strong>Perguntas abertas:</strong></p>
             <ul style="padding-left: 20px;">
                 <li>O que mais gostou no sistema?</li>
