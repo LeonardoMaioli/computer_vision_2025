@@ -336,14 +336,14 @@
             </p>
 
             <h3>Ordem de Execução dos Códigos</h3>
-            <ol>
+            <ol style="padding-left: 20px;">
                 <li><code>Extracao.py</code> → Coleta de dados dos gestos via webcam e exportação para um arquivo CSV.</li>
                 <li><code>treinarModelo.py</code> → Treinamento do classificador a partir dos dados coletados.</li>
                 <li><code>predicao.py</code> → Execução do sistema em tempo real para reconhecimento de gestos.</li>
             </ol>
 
             <h3>Descrição dos Arquivos de Código</h3>
-            <ul>
+            <ul style="padding-left: 20px;">
                 <li>
                     <strong>Extracao.py</strong>: 
                     Utiliza a biblioteca <code>MediaPipe</code> para detectar landmarks das mãos em tempo real. 
@@ -399,17 +399,19 @@
                     Quando um gesto é reconhecido, o nome correspondente é exibido diretamente sobre a imagem do vídeo.
                     No botão abaixo, você pode visualizar o código de predição.
 
-                    <a href="https://github.com/LeonardoMaioli/computer_vision_2025/blob/main/etapa4-SPV/Arquivos_Projeto/predicao.py" target="_blank" style="text-decoration: none;">
-                            <button style="background-color:#4CAF50; color:white; border:none; padding:10px 16px; border-radius:8px; cursor:pointer; font-size:14px; margin-right:10px;">
-                                📜 Ver Código
-                            </button>
-                    </a>
+                    <div style="margin-top: 10px;">
+                        <a href="https://github.com/LeonardoMaioli/computer_vision_2025/blob/main/etapa4-SPV/Arquivos_Projeto/predicao.py" target="_blank" style="text-decoration: none;">
+                                <button style="background-color:#4CAF50; color:white; border:none; padding:10px 16px; border-radius:8px; cursor:pointer; font-size:14px; margin-right:10px;">
+                                    📜 Ver Código
+                                </button>
+                        </a>
+                    </div>
                 </li>
 
             </ul>
 
             <h3>Arquivos Gerados e Utilizados</h3>
-            <ul>
+            <ul style="padding-left: 20px;">
                 <li><strong>dados_gesto.csv</strong>: Base de dados coletada com os landmarks das mãos e os rótulos dos gestos.</li>
                 <li><strong>gesture_model.pkl</strong>: Modelo de classificação treinado para reconhecimento dos gestos.</li>
                 <li><strong>label_encoder.pkl</strong>: Codificador dos rótulos, permitindo a tradução de classes numéricas para nomes de gestos.</li>
