@@ -322,7 +322,108 @@
         <div id="spv" class="content-section hidden">
             <h2> Desenvolvimento do Sistema de Processamento da Visão (SPV)</h2>
 
-            
+            <h3>Descrição da Etapa</h3>
+            <p>
+                Nesta etapa, a equipe implementou o <strong>Sistema de Processamento da Visão (SPV)</strong>,
+                utilizando a API <code>OpenCV</code> em conjunto com as bibliotecas <code>MediaPipe</code> e <code>scikit-learn</code>. 
+                O sistema foi desenvolvido em ambiente <strong>Ubuntu-Linux</strong>, com o uso da webcam do laboratório, seguindo todas as diretrizes propostas pelo trabalho: execução local, uso de bibliotecas reconhecidas e gratuitas, cálculos realizados em tempo real ("on-the-fly") e implementação própria pelos integrantes da equipe.
+            </p>
+            <p>
+                O desenvolvimento foi dividido em três códigos principais, que organizam o fluxo do sistema:
+                <strong>coleta de dados</strong>, <strong>treinamento do modelo</strong> e 
+                <strong>predição em tempo real</strong>. Além disso, diversos arquivos auxiliares foram gerados 
+                para permitir a utilização completa do SPV.
+            </p>
+
+            <h3>Ordem de Execução dos Códigos</h3>
+            <ol>
+                <li><code>Extracao.py</code> → Coleta de dados dos gestos via webcam e exportação para um arquivo CSV.</li>
+                <li><code>treinarModelo.py</code> → Treinamento do classificador a partir dos dados coletados.</li>
+                <li><code>predicao.py</code> → Execução do sistema em tempo real para reconhecimento de gestos.</li>
+            </ol>
+
+            <h3>Descrição dos Arquivos de Código</h3>
+            <ul>
+                <li>
+                    <strong>Extracao.py</strong>: 
+                    Utiliza a biblioteca <code>MediaPipe</code> para detectar landmarks das mãos em tempo real. 
+                    O usuário pode capturar amostras de diferentes gestos, que são salvas no arquivo <code>dados_gesto.csv</code>. 
+                    Cada frame salvo contém 63 coordenadas (x, y, z) e o rótulo do gesto informado. Nos botões abaixo, você pode visualizar o código de coleta e também um exemplo de csv gerado pela equipe nesse projeto, com 1738 frames coletados. A quantidade e a variabilidade dos frames coletados foi essencial para uma boa predição.
+                    
+                    <div style="margin-top: 10px;">
+                        <a href="https://github.com/LeonardoMaioli/computer_vision_2025/blob/main/etapa4-SPV/Arquivos_Projeto/Extracao.py" target="_blank" style="text-decoration: none;">
+                            <button style="background-color:#4CAF50; color:white; border:none; padding:10px 16px; border-radius:8px; cursor:pointer; font-size:14px; margin-right:10px;">
+                                📜 Ver Código
+                            </button>
+                        </a>
+
+                        <a href="https://github.com/LeonardoMaioli/computer_vision_2025/blob/main/etapa4-SPV/Arquivos_Projeto/dados_gesto.csv" target="_blank" style="text-decoration: none;">
+                            <button style="background-color:#2196F3; color:white; border:none; padding:10px 16px; border-radius:8px; cursor:pointer; font-size:14px;">
+                                📊 Ver CSV
+                            </button>
+                        </a>
+                    </div>
+                </li>
+
+                <li>
+                    <strong>treinarModelo.py</strong>: 
+                    Lê os dados do arquivo <code>dados_gesto.csv</code> gerado anteriormente e treina um classificador <code>RandomForest</code> utilizando <code>scikit-learn</code>. 
+                    O modelo gerado é salvo em <code>gesture_model.pkl</code>, 
+                    enquanto os rótulos codificados ficam em <code>label_encoder.pkl</code>.
+                    Nos botões abaixo, você pode visualizar o código de treinamento e também o modelo e os rótulos codificados gerados pela nesse projeto.
+
+                    <div style="margin-top: 10px;">
+                        <a href="https://github.com/LeonardoMaioli/computer_vision_2025/blob/main/etapa4-SPV/Arquivos_Projeto/treinarModelo.py" target="_blank" style="text-decoration: none;">
+                            <button style="background-color:#4CAF50; color:white; border:none; padding:10px 16px; border-radius:8px; cursor:pointer; font-size:14px; margin-right:10px;">
+                                📜 Ver Código
+                            </button>
+                        </a>
+
+                        <a href="https://github.com/LeonardoMaioli/computer_vision_2025/blob/main/etapa4-SPV/Arquivos_Projeto/gesture_model.pkl" target="_blank" style="text-decoration: none;">
+                            <button style="background-color:#2196F3; color:white; border:none; padding:10px 16px; border-radius:8px; cursor:pointer; font-size:14px;">
+                                📊 Ver Modelo
+                            </button>
+                        </a>
+
+                         <a href="https://github.com/LeonardoMaioli/computer_vision_2025/blob/main/etapa4-SPV/Arquivos_Projeto/label_encoder.pkl" target="_blank" style="text-decoration: none;">
+                            <button style="background-color:#2196F3; color:white; border:none; padding:10px 16px; border-radius:8px; cursor:pointer; font-size:14px;">
+                                📊 Ver Rótulos Codificados
+                            </button>
+                        </a>
+                    </div>
+                </li>
+
+                <li>
+                    <strong>predicao.py</strong>: 
+                    Carrega o modelo treinado e executa a predição em tempo real, utilizando a webcam. 
+                    Quando um gesto é reconhecido, o nome correspondente é exibido diretamente sobre a imagem do vídeo.
+                    No botão abaixo, você pode visualizar o código de predição.
+
+                    <a href="https://github.com/LeonardoMaioli/computer_vision_2025/blob/main/etapa4-SPV/Arquivos_Projeto/predicao.py" target="_blank" style="text-decoration: none;">
+                            <button style="background-color:#4CAF50; color:white; border:none; padding:10px 16px; border-radius:8px; cursor:pointer; font-size:14px; margin-right:10px;">
+                                📜 Ver Código
+                            </button>
+                    </a>
+                </li>
+
+            </ul>
+
+            <h3>Arquivos Gerados e Utilizados</h3>
+            <ul>
+                <li><strong>dados_gesto.csv</strong>: Base de dados coletada com os landmarks das mãos e os rótulos dos gestos.</li>
+                <li><strong>gesture_model.pkl</strong>: Modelo de classificação treinado para reconhecimento dos gestos.</li>
+                <li><strong>label_encoder.pkl</strong>: Codificador dos rótulos, permitindo a tradução de classes numéricas para nomes de gestos.</li>
+                <li><strong>libs.txt</strong>: Arquivo listando as bibliotecas utilizadas no desenvolvimento do sistema (como dependências).</li>
+            </ul>
+
+            <h3>Considerações</h3>
+            <p>
+                O sistema desenvolvido atende às necessidades previstas pelo Contexto e Cenário de Aplicação (CA), 
+                permitindo que <strong>usuários leigos</strong> possam executá-lo de forma simples e intuitiva, 
+                visualizando os resultados em tempo real. 
+                Além disso, todos os códigos incluem cabeçalhos documentados com nome dos autores, RA, data, 
+                nome do programa e instruções de execução no Linux, conforme solicitado.
+            </p>
         </div>
 
         <div id="laboratorio-experimental" class="content-section hidden">
