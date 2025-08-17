@@ -576,6 +576,210 @@
             </div>
         </div>
 
+        <div id="relatorio-final" class="content-section hidden">
+            <h2>Relatório Final do Trabalho (RFT)</h2>
+
+            <p style="margin-top: -8px; color:#555;">Resumo consolidado do projeto “Sistema tradutor de Libras para texto em português — Aplicação em contextos clínicos e hospitalares”.</p>
+
+            <h3>1. Introdução</h3>
+            <p>
+                O objetivo geral deste trabalho foi desenvolver um <strong>protótipo funcional</strong> capaz de <strong>traduzir sinais de Libras para texto em português</strong> em tempo real,
+                com foco de uso em <strong>clínicas e hospitais</strong>. Os objetivos específicos foram: (i) projetar o fluxo do sistema (captura, pré-processamento,
+                extração de características, classificação e exibição do texto); (ii) <strong>implementar</strong> um SPV utilizando bibliotecas livres;
+                (iii) <strong>coletar dados</strong> reais e treinar um classificador; (iv) <strong>avaliar</strong> desempenho, robustez e usabilidade em laboratório e em teste de campo;
+                (v) <strong>documentar</strong> todo o processo para reprodutibilidade.
+            </p>
+
+            <h4>1.2. Cenário de Aplicação (CA)</h4>
+            <p>
+                Todo o contexto, motivação e justificativas estão descritos na <a href="#" onclick="showContent('cenario-aplicacao')">Etapa 1 — CA</a>.
+                Em síntese, a equipe observou por meio de entrevistas e pesquisas a existência de uma <strong>lacuna</strong> de soluções acessíveis para tradução automática na direção <em>Libras → Português</em> em ambientes reais,
+                o que impacta diretamente a comunicação entre <strong>profissionais da saúde</strong> e <strong>pacientes surdos</strong>.
+            </p>
+
+            <h4>1.3. Fundamentação Teórica</h4>
+            <p>
+                Do ponto de vista técnico, este trabalho se apoia em conceitos de visão computacional e aprendizado de
+                máquina. A tradução de Libras para texto foi baseada na detecção de <em>landmarks</em> das mãos, que
+                permitem representar a postura e o movimento dos gestos. Após a captura, os dados passam por um
+                processo de pré-processamento que envolve a organização dos <em>landmarks</em> em vetores numéricos,
+                normalização e limpeza de amostras ruidosas. Para o reconhecimento dos sinais, foi treinado um modelo
+                de <em>Random Forest</em> a partir de amostras rotuladas de gestos, o que garante bom desempenho em
+                termos de acurácia e rapidez de predição. Por fim, todo o sistema foi estruturado em um pipeline em
+                tempo real, capaz de realizar captura com webcam, extração de características e predição contínua
+                “on-the-fly”.
+            </p>
+
+            <h3>2. Materiais e Métodos</h3>
+            <h4>2.1 Modelagem Funcional do SPV (MF)</h4>
+            <p>
+                O diagrama de blocos e a descrição dos módulos encontram‑se em <a href="#" onclick="showContent('modelagem-funcional')">Etapa 2 — MF</a>.
+            </p>
+            <p>
+                Em síntese, o sistema foi concebido como um pipeline sequencial que parte da captura de vídeo em tempo real, realiza o pré-processamento dos frames e a detecção das regiões de interesse (mãos). 
+                Em seguida, procede-se à extração de características relevantes (landmarks), que são organizadas em vetores numéricos e fornecidas a um classificador de aprendizado de máquina responsável por identificar os sinais de Libras. 
+                O resultado é convertido em texto em português e exibido em interface gráfica. 
+                Essa modelagem funcional permitiu estruturar de forma clara o fluxo de dados, bem como os requisitos técnicos para cada etapa do SPV, desde a entrada até a saída final do sistema.
+            </p>
+
+            <h4>2.2 Descrição da Implementação do SPV</h4>
+            <p>
+                Implementação em <strong>Python 3.10</strong> com <code>OpenCV</code>, <code>MediaPipe</code> e <code>scikit-learn</code>, seguindo os requisitos de execução local
+                e bibliotecas livres. O desenvolvimento foi organizado em três scripts principais:
+            </p>
+            <ol style="padding-left: 20px;">
+                <li><code>Extracao.py</code> — captura landmarks da mão e salva amostras rotuladas em <code>dados_gesto.csv</code>.</li>
+                <li><code>treinarModelo.py</code> — treina o classificador <em>Random Forest</em> e salva <code>gesture_model.pkl</code> e <code>label_encoder.pkl</code>.</li>
+                <li><code>predicao.py</code> — realiza a predição em tempo real via webcam, exibindo o gesto reconhecido.</li>
+            </ol>
+            <p>
+                Uma descrição mais detalhada da implementação do SPV encontram‑se em <a href="#" onclick="showContent('spv')">Etapa 4 — SPV</a>.
+            </p>
+
+            <h4>2.3 Lista de Arquivos (código‑fonte, dados e auxiliares)</h4>
+            <ul style="padding-left: 20px;">
+                <li><a href="https://github.com/LeonardoMaioli/computer_vision_2025/blob/main/etapa4-SPV/Arquivos_Projeto/Extracao.py" target="_blank">Extracao.py</a></li>
+                <li><a href="https://github.com/LeonardoMaioli/computer_vision_2025/blob/main/etapa4-SPV/Arquivos_Projeto/treinarModelo.py" target="_blank">treinarModelo.py</a></li>
+                <li><a href="https://github.com/LeonardoMaioli/computer_vision_2025/blob/main/etapa4-SPV/Arquivos_Projeto/predicao.py" target="_blank">predicao.py</a></li>
+                <li><a href="https://github.com/LeonardoMaioli/computer_vision_2025/blob/main/etapa4-SPV/Arquivos_Projeto/dados_gesto.csv" target="_blank">dados_gesto.csv</a> (amostras coletadas)</li>
+                <li><a href="https://github.com/LeonardoMaioli/computer_vision_2025/blob/main/etapa4-SPV/Arquivos_Projeto/gesture_model.pkl" target="_blank">gesture_model.pkl</a> (modelo treinado)</li>
+                <li><a href="https://github.com/LeonardoMaioli/computer_vision_2025/blob/main/etapa4-SPV/Arquivos_Projeto/label_encoder.pkl" target="_blank">label_encoder.pkl</a> (rótulos codificados)</li>
+                <li><a href="https://github.com/LeonardoMaioli/computer_vision_2025/blob/main/etapa4-SPV/Arquivos_Projeto/libs.txt" target="_blank">libs.txt</a> (lista de dependências)</li>
+                <li>Vídeos do SPV em funcionamento também são encontrados em <a href="#" onclick="showContent('spv')">Etapa 4 — SPV</a>.</li>
+            </ul>
+
+            <h4>2.4 Análise Técnica — Métricas e Atendimento ao Cenário</h4>
+            <p>
+                Para avaliar o grau de atendimento ao cenário escolhido, foram definidas métricas baseadas em um 
+                questionário aplicado aos participantes durante os testes. Essas métricas buscavam captar a percepção dos 
+                usuários sobre diferentes aspectos do sistema, funcionando como indicadores qualitativos iniciais:
+            </p>
+            <ul style="padding-left:20px;">
+                <li>Precisão do reconhecimento dos gestos realizados;</li>
+                <li>Robustez do reconhecimento frente a variações de distância da câmera;</li>
+                <li>Robustez do reconhecimento frente a pequenas alterações no ângulo da mão;</li>
+                <li>Rapidez de resposta do sistema aos gestos;</li>
+                <li>Consistência no reconhecimento de gestos repetidos;</li>
+                <li>Clareza e utilidade das instruções fornecidas para a realização dos gestos;</li>
+                <li>Facilidade de utilização de recursos de apoio para aprendizado de gestos desconhecidos;</li>
+                <li>Usabilidade geral do sistema.</li>
+            </ul>
+            <p>
+                Essas métricas atuaram como nossas <strong>métricas qualitativas iniciais</strong>, permitindo identificar pontos fortes 
+                (como a rapidez de resposta e a clareza das instruções) e limitações (como variações de precisão em diferentes ângulos ou distâncias). 
+                Embora ainda não tenham sido acompanhadas de valores numéricos objetivos (como taxas de acerto por gesto, tempo médio de resposta ou 
+                variação estatística), esse levantamento subjetivo serviu como uma primeira etapa de validação prática do protótipo.
+            </p>
+            <p>
+                Como <strong>continuidade natural</strong> deste trabalho, propõe-se a evolução dessas métricas para indicadores quantitativos, de modo a obter 
+                resultados objetivos e comparáveis em futuras versões do sistema. Por exemplo: calcular a acurácia média por gesto, medir a latência em milissegundos, 
+                avaliar a taxa de repetibilidade em diferentes condições de iluminação ou distância, entre outras análises que possam consolidar ainda mais 
+                a robustez do sistema.
+            </p>
+            <p style="margin-top:10px;">
+                <strong>Conclusão da análise técnica:</strong> O protótipo desenvolvido atende de forma <strong>parcial</strong> o
+                cenário de aplicação proposto. Essa limitação ocorre porque, para viabilizar a implementação dentro do
+                escopo do projeto, foram selecionados apenas alguns sinais específicos de Libras para a predição
+                (<em>Não</em>, <em>Sim</em>, <em>Dor</em>, <em>Febre</em>, <em>Enjoo</em> e <em>Resfriado</em>), em vez de um
+                vocabulário amplo e variado, como seria necessário para atender plenamente às demandas reais de
+                comunicação em ambientes clínicos e hospitalares.
+            </p>
+            <p>
+                No entanto, os resultados alcançados demonstraram que, mesmo com esse vocabulário reduzido, o sistema
+                foi capaz de reconhecer os sinais escolhidos com boa acurácia, baixa latência e comportamento consistente.
+                Isso evidencia que o protótipo cumpre com êxito o papel de <strong>prova de conceito</strong>, validando a
+                viabilidade técnica da abordagem proposta e mostrando que é possível traduzir sinais de Libras para texto
+                em tempo real com tecnologias acessíveis de visão computacional e aprendizado de máquina.
+            </p>
+            <p>
+                Portanto, o trabalho abre caminho para <strong>projetos futuros</strong> que possam expandir o vocabulário de
+                sinais reconhecidos, melhorar a robustez frente a diferentes condições de iluminação e ângulo, e aplicar
+                modelos mais sofisticados de aprendizado profundo. Dessa forma, ainda que o alcance atual seja limitado,
+                o sistema representa um passo inicial relevante em direção a uma solução prática para inclusão comunicacional
+                em contextos de saúde e em outros cenários de interação entre surdos e ouvintes.
+            </p>
+
+            <h3>3. Laboratório Experimental</h3>
+            <h4>3.1 Roteiro do Laboratório</h4>
+            <p>
+                O roteiro passo a passo de execução está documentado na <a href="#" onclick="showContent('laboratorio-experimental')">Etapa 5 — LEx</a>, incluindo preparação do ambiente, comandos, procedimentos e registros.
+            </p>
+
+            <h4>3.2 Teste de Campo (TCS) — Análise de Resultados</h4>
+            <p>
+                Os registros em vídeo do teste de campo estão na <a href="#" onclick="showContent('teste-campo')">Etapa 6 — TC</a>.
+            </p>
+            <p>
+                Durante o Teste de Campo, foram conduzidos experimentos estruturados para avaliar a precisão, robustez e usabilidade do Sistema Tradutor de Libras para Texto (SPV) em condições controladas de laboratório. Os experimentos incluíram:
+            </p>
+            <ul style="padding-left: 20px;">
+                <li>Execução de cada um dos sinais programados no sistema: <strong>Não</strong>, <strong>Sim</strong>, <strong>Dor</strong>, <strong>Febre</strong>, <strong>Enjoo</strong> e <strong>Resfriado</strong>;</li>
+                <li>Variação da distância entre a mão e a câmera para avaliar a robustez do reconhecimento;</li>
+                <li>Alteração do ângulo da mão durante a execução do gesto para testar consistência do modelo;</li>
+                <li>Execução de gestos em sequência rápida para verificar o tempo de resposta do sistema;</li>
+                <li>Repetição de gestos em diferentes momentos para avaliar a consistência na detecção;</li>
+                <li>Utilização de aplicativos de apoio (como HandTalk) quando o usuário não sabia executar determinado gesto;</li>
+                <li>Registro de observações sobre facilidade de uso, clareza das instruções e experiência geral durante a interação com o sistema.</li>
+            </ul>
+
+            <h3>Critérios de Avaliação</h3>
+            <p>
+                Os experimentos foram avaliados a partir de métricas qualitativas e subjetivas, coletadas via questionário e enquete, conforme descrito no laboratório experimental:
+            </p>
+            <ul style="padding-left: 20px;">
+                <li><strong>Precisão do Reconhecimento:</strong> capacidade do sistema em identificar corretamente os sinais realizados pelos usuários;</li>
+                <li><strong>Robustez:</strong> manutenção da precisão frente a variações de distância e ângulo da mão;</li>
+                <li><strong>Tempo de Resposta:</strong> rapidez do sistema em exibir o sinal reconhecido após o gesto ser realizado;</li>
+                <li><strong>Consistência:</strong> estabilidade do reconhecimento ao repetir os mesmos gestos;</li>
+                <li><strong>Usabilidade:</strong> facilidade de execução e compreensão das instruções pelos usuários;</li>
+                <li><strong>Aplicabilidade Prática:</strong> percepção dos usuários sobre o uso do sistema em contextos clínicos ou reais.</li>
+            </ul>
+
+            <h3>Análise das Médias e Observações Subjetivas</h3>
+            <p>
+                A partir do questionário e da enquete aplicada, foi possível consolidar uma visão geral do desempenho do sistema:
+            </p>
+            <ul style="padding-left: 20px;">
+                <li>Todos os sinais foram reconhecidos corretamente, demonstrando precisão adequada para os sinais testados;</li>
+                <li>Alguns gestos apresentaram pequenas variações de acerto quando a distância ou o ângulo foram alterados, indicando pontos de melhoria no pré-processamento e treinamento do modelo de predição;</li>
+                <li>O tempo de resposta do sistema foi considerado rápido, garantindo uma interação fluida com o usuário;</li>
+                <li>As instruções foram consideradas claras e facilitaram a execução correta dos gestos;</li>
+                <li>Os usuários avaliaram a usabilidade do sistema como satisfatória, apontando potencial aplicação em contextos clínicos de triagem e atendimento rápido.</li>
+            </ul>
+
+            <p>
+                Essa análise inicial permite identificar os pontos fortes do protótipo, como rapidez e clareza na interação, bem como limitações, principalmente em termos de robustez frente a variações de ângulo e distância. Como próximos passos, recomenda-se a implementação de métricas quantitativas, como acurácia por gesto, latência em milissegundos e taxa de repetibilidade, de modo a tornar os resultados comparáveis e objetivamente mensuráveis em futuras versões do sistema.
+            </p>
+
+            <h3>4. Conclusões</h3>
+            <p>
+                Os objetivos propostos foram <strong>majoritariamente atingidos</strong>:
+                o protótipo demonstrou viabilidade técnica para tradução básica de Libras → texto em tempo real.
+                <strong>Pontos positivos:</strong> execução local, bibliotecas livres, facilidade de uso e resposta rápida.
+                <strong>Pontos a melhorar:</strong> ampliar vocabulário, aumentar robustez a condições adversas,
+                coletar base de dados maior/diversa e explorar modelos mais avançados.
+            </p>
+
+            <h3>5. Referências Bibliográficas</h3>
+            <p>
+                As referências utilizadas estão consolidadas na seção <a href="#" onclick="showContent('referencias')">Referências</a> desta página.
+            </p>
+
+            <h3>6. Anexos</h3>
+            <p>
+                O conjunto completo de <strong>códigos, dados e mídias</strong> está listado na subseção <em>2.3</em> acima e nas Etapas 4–6.
+                O acesso a todos esses arquivos para download também pode ser feito por aqui, clicando no botão abaixo.
+            </p>
+            <div style="margin-top: 10px;">
+                <a href="https://github.com/LeonardoMaioli/computer_vision_2025/blob/main/etapa4-SPV/Arquivos_Projeto" target="_blank" style="text-decoration: none;">
+                    <button style="background-color:#4CAF50; color:white; border:none; padding:10px 16px; border-radius:8px; cursor:pointer; font-size:14px; margin-right:10px;">
+                        📜 Ir para repositório de arquivos
+                    </button>
+                </a>
+            </div>
+
+        </div>
+
         <div id="referencias" class="content-section hidden">
             <h2>Referências</h2>
             <ul style="list-style-type: decimal; padding-left: 20px;">
