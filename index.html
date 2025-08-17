@@ -879,8 +879,8 @@
 
                 <!-- Navegação -->
                 <div style="text-align: center; margin-top: 20px;">
-                <button onclick="changeSlide(-1)">◀ Anterior</button>
-                <button onclick="changeSlide(1)">Próximo ▶</button>
+                <button onclick="changeSlide_sem2(-1)">◀ Anterior</button>
+                <button onclick="changeSlide_sem2(1)">Próximo ▶</button>
                 </div>
             </div>
         </div>
@@ -889,21 +889,21 @@
                 let currentSlide_sem2 = 0;
                 const slides_sem2 = document.querySelectorAll("#slides-container_sem2 .slide");
 
-                function showSlide(index) {
-                    slides.forEach((slide, i) => {
+                function showSlide_sem2(index) {
+                    slides_sem2.forEach((slide, i) => {
                     slide.style.display = i === index ? "block" : "none";
                     });
                 }
 
-                function changeSlide(direction) {
-                    currentSlide += direction;
-                    if (currentSlide < 0) currentSlide = slides.length - 1;
-                    if (currentSlide >= slides.length) currentSlide = 0;
-                    showSlide(currentSlide);
+                function changeSlide_sem2(direction) {
+                    currentSlide_sem2 += direction;
+                    if (currentSlide_sem2 < 0) currentSlide_sem2 = slides_sem2.length - 1;
+                    if (currentSlide_sem2 >= slides_sem2.length) currentSlide_sem2 = 0;
+                    showSlide_sem2(currentSlide_sem2);
                 }
 
                 // Inicializa o primeiro slide
-                showSlide(currentSlide);
+                showSlide_sem2(currentSlide_sem2);
             </script>
 
         <div id="referencias" class="content-section hidden">
