@@ -780,6 +780,109 @@
 
         </div>
 
+        <div id="seminario-pt2" class="content-section hidden">
+            <h2>Seminário 1</h2>
+            <div id="slides-container" style="position: relative; max-width: 800px; margin: auto;">
+
+                <!-- Slide 1 -->
+                <div class="slide" style="display: block;">
+                    <h3>Relembrando a Ideia do Projeto</h3>
+                    <p>
+                        A definição do problema foi guiada pela etapa de entrevistas empáticas, na qual o grupo identificou
+                        a dificuldade de comunicação entre surdos e ouvintes como um desafio relevante e de grande impacto
+                        social. Apesar da existência de soluções de mercado, como os aplicativos <em>Hand Talk</em> e
+                        <em>VLibras</em>, estas se concentram na tradução de Português para Libras, não contemplando a
+                        tradução inversa. Trabalhos acadêmicos como Nath et al. (2017) e Papatsimouli et al. (2023) apontam
+                        avanços em algoritmos e revisões sistemáticas, mas ainda com limitações de vocabulário e foco em
+                        ambientes controlados. Isso evidencia a lacuna de soluções práticas e acessíveis para tradução
+                        automática de Libras em cenários reais.
+                    </p>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide" style="display: block;">
+                    <h3>Objetivo do Sistema e Benefícios</h3>
+                    <p>O objetivo principal do projeto foi desenvolver um protótipo funcional de um sistema de tradução automática de Libras para texto escrito em português, utilizando técnicas de Visão Computacional e Processamento de Vídeo. Além disso, o sistema teve um foco específico para utilização em clínicas e hospitais, ou seja, sendo capaz de reconhecer sinais específicos usados em triagem de pronto-socorro ou em consultas clínicas básicas como sintomas, dores e respostas simples. 
+                    </p>
+                    <p>Nesta versão do projeto, a equipe projetou o sistema para identificar os seguintes sinais: <strong>Não</strong>, <strong>Sim</strong>, <strong>Dor</strong>, <strong>Febre</strong>, <strong>Enjoo</strong> e <strong>Resfriado</strong>. 
+                    </p>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide" style="display: block;">
+                    <h3>Desenvolvimento do Sistema</h3>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>Ferramentas Utilizadas:</strong> OpenCV, MediaPipe, scikit-learn em ambiente Ubuntu-Linux.</li>
+                        <li><strong>Funcionalidade:</strong> Captura de vídeo, extração de características das mãos e tradução de Libras para texto em tempo real.</li>
+                        <li><strong>Fluxo do Sistema:</strong>
+                            <ol>
+                                <li><code>Extracao.py</code> → coleta de dados e geração do arquivo <code>dados_gesto.csv</code>.</li>
+                                <li><code>treinarModelo.py</code> → treinamento do classificador RandomForest e criação de <code>gesture_model.pkl</code> e <code>label_encoder.pkl</code>.</li>
+                                <li><code>predicao.py</code> → predição em tempo real com exibição do gesto reconhecido sobre o vídeo.</li>
+                            </ol>
+                        </li>
+                        <li><strong>Gestos Reconhecidos:</strong> Não, Sim, Dor, Febre, Enjoo, Resfriado.</li>
+                        <li><strong>Facilidade de Uso:</strong> Sistema intuitivo, executável por usuários leigos, com resultados em tempo real.</li>
+                    </ul>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="slide" style="display: block;">
+                    <h3>Desempenho Obtido no Teste de Campo</h3>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>Gestos testados:</strong> Não, Sim, Dor, Febre, Enjoo, Resfriado.</li>
+                        <li><strong>Experimentos realizados:</strong> variação de distância e ângulo da mão, sequência rápida de gestos, repetição de gestos, uso de aplicativos de apoio.</li>
+                        <li><strong>Métricas avaliadas:</strong> precisão, robustez, tempo de resposta, consistência, usabilidade e aplicabilidade prática.</li>
+                        <li><strong>Resultados gerais:</strong>
+                            <ul>
+                                <li>Todos os sinais reconhecidos corretamente com boa precisão.</li>
+                                <li>Pequenas variações de acerto em mudanças de distância ou ângulo.</li>
+                                <li>Tempo de resposta rápido, garantindo interação fluida.</li>
+                                <li>Instruções claras e fácil execução dos gestos.</li>
+                                <li>Usabilidade satisfatória e potencial aplicação em contextos clínicos.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Conclusão:</strong> Protótipo validado como prova de conceito, demonstrando viabilidade técnica para tradução de Libras para texto em tempo real, com oportunidades para expansão do vocabulário e melhorias de robustez.</li>
+                    </ul>
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="slide" style="display: block;">
+                    <h3>Vídeos em Teste de Campo e Laboratório</h3>
+                    <p>A seguir, apresentamos dois registros em vídeo de usuários utilizando o sistema durante os testes de campo e no laboratório:</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                        <video controls style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                            <source src="etapa6-TC/video1.mp4" type="video/mp4">
+                            Seu navegador não suporta a exibição de vídeos.
+                        </video>
+
+                        <video controls style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                            <source src="etapa6-TC/video2.mp4" type="video/mp4">
+                            Seu navegador não suporta a exibição de vídeos.
+                        </video>
+                    </div>
+                </div>
+
+                <!-- Slide 6 -->
+                <div class="slide" style="display: block;">
+                    <h3>Demonstração do Sistema ao Vivo</h3>
+                    <p>
+                        Agora vamos testar o sistema ao vivo, utilizando o computador do laboratório. 
+                        O ambiente já foi preparado, com todas as bibliotecas necessárias instaladas, 
+                        para que possamos executar o protótipo de tradução de Libras para texto em tempo real e observar seu funcionamento.
+                    </p>
+                </div>
+
+
+                <!-- Navegação -->
+                <div style="text-align: center; margin-top: 20px;">
+                <button onclick="changeSlide(-1)">◀ Anterior</button>
+                <button onclick="changeSlide(1)">Próximo ▶</button>
+                </div>
+            </div>
+        </div>
+
         <div id="referencias" class="content-section hidden">
             <h2>Referências</h2>
             <ul style="list-style-type: decimal; padding-left: 20px;">
