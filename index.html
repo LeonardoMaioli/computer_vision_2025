@@ -785,7 +785,7 @@
 
         <div id="seminario-pt2" class="content-section hidden">
             <h2>Seminário 1</h2>
-            <div id="slides-container" style="position: relative; max-width: 800px; margin: auto;">
+            <div id="slides-container_sem2" style="position: relative; max-width: 800px; margin: auto;">
 
                 <!-- Slide 1 -->
                 <div class="slide" style="display: block;">
@@ -884,6 +884,27 @@
                 </div>
             </div>
         </div>
+
+            <script>
+                let currentSlide_sem2 = 0;
+                const slides_sem2 = document.querySelectorAll("#slides-container_sem2 .slide");
+
+                function showSlide(index) {
+                    slides.forEach((slide, i) => {
+                    slide.style.display = i === index ? "block" : "none";
+                    });
+                }
+
+                function changeSlide(direction) {
+                    currentSlide += direction;
+                    if (currentSlide < 0) currentSlide = slides.length - 1;
+                    if (currentSlide >= slides.length) currentSlide = 0;
+                    showSlide(currentSlide);
+                }
+
+                // Inicializa o primeiro slide
+                showSlide(currentSlide);
+            </script>
 
         <div id="referencias" class="content-section hidden">
             <h2>Referências</h2>
